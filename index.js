@@ -2,14 +2,17 @@ import fs from "fs";
 import readline from "readline";
 
 const tampilkanTasks = () => {
-    fs.readFile("todo.txt", "utf8", (err, data) => {
+    fs.open("todo.txt", "a", (err) => {
         if (err) throw err;
-        const tasks = data.split("\n");
-        console.log("lakukan:");
-        tasks.forEach((task, index) => {
-            if (task !== "") {
-                console.log(`${index + 1}. ${task}`);
-            }
+        fs.readFile("todo.txt", "utf8", (err, data) => {
+            if (err) throw err;
+            const tasks = data.split("\n");
+            console.log("lakukan:");
+            tasks.forEach((task, index) => {
+                if (task !== "") {
+                    console.log(`${index + 1}. ${task}`);
+                }
+            });
         });
     });
 };
@@ -25,6 +28,11 @@ const hapusTasks = (nomorTask) => {
     fs.readFile("todo.txt", "utf8", (err, data) => {
         if (err) throw err;
         const dataArray = data.split("\n");
+        if (nomorTask > dataArray.length) {
+            console.log("ERROR: Nomor task tidak valid.");
+            tampilkanTasks();
+            return;
+        }
         dataArray.splice(nomorTask - 1, 1);
         const dataString = dataArray.join("\n");
         fs.writeFile("todo.txt", dataString, (err) => {
@@ -58,4 +66,14 @@ rl.on("line", (input) => {
         default:
             console.log("Perintah tidak dikenali");
     }
+});
+
+rl.on("SIGINT", () => {
+    console.log("INFO: Program ditutup.");
+    process.exit(0);
+});
+
+rl.on("close", () => {
+    console.log("INFO: Program ditutup.");
+    process.exit(0);
 });
