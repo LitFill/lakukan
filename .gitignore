@@ -132,3 +132,6 @@ dist
 
 # my output
 todo.txt
+
+#git diff
+.diff
