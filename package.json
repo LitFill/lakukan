@@ -1,0 +1,29 @@
+{
+    "name": "lakukan",
+    "version": "1.0.0",
+    "description": "proyek todo menggunakan JS sebagai awalan beginer dev",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm test",
+        "mulai": "node index.js"
+    },
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LitFill/lakukan.git"
+    },
+    "keywords": [
+        "todo",
+        "js",
+        "node",
+        "pemula",
+        "lakukan",
+        "belajar"
+    ],
+    "author": "LitFill",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/LitFill/lakukan/issues"
+    },
+    "homepage": "https://github.com/LitFill/lakukan#readme"
+}
