@@ -134,4 +134,4 @@ dist
 todo.txt
 
 #git diff
-.diff
+*.diff
